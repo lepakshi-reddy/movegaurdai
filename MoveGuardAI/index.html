@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoveGuard AI | HealthTech</title>
+  <meta name="description" content="MoveGuard AI - privacy-first posture and exercise form assistant." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home"><span class="brand-icon">✦</span><span>MoveGuard <b>AI</b></span></a>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#analyze">Analyze</a>
+      <a href="#reports">Reports</a>
+      <a href="#about">How it works</a>
+    </nav>
+    <button class="primary small" onclick="goTo('analyze')">Start Analysis</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-copy">
+        <span class="pill">● Track 03 · HealthTech</span>
+        <h1>Move better.<br><span>Feel stronger.</span></h1>
+        <p class="lead">An AI-powered movement assistant that analyzes posture and exercise form through your camera and gives simple, real-time feedback.</p>
+        <div class="actions">
+          <button class="primary" onclick="goTo('analyze')">Try Live Analysis →</button>
+          <button class="secondary" onclick="startDemo()">Run Demo Mode</button>
+        </div>
+        <div class="trust-row">
+          <span>🔒 Privacy-first</span><span>⚡ Fast feedback</span><span>📷 No wearables</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="camera-mock">
+          <div class="scan"></div>
+          <div class="status"><i></i> Simulated analysis</div>
+          <div class="skeleton" id="heroSkeleton">
+            <div class="head"></div><div class="body-line"></div>
+            <div class="arm l"></div><div class="arm r"></div>
+            <div class="leg l"></div><div class="leg r"></div>
+          </div>
+          <div class="score-float"><small>POSTURE SCORE</small><strong>84</strong><span>Good</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section">
+      <div class="section-head"><div><span class="eyebrow">YOUR OVERVIEW</span><h2>Movement Dashboard</h2></div><span class="streak">🔥 6 day streak</span></div>
+      <div class="stats-grid">
+        <div class="stat-card score-card"><div><span class="label">Movement Score</span><strong id="movementScore">87</strong><span class="muted">/ 100 · Excellent</span></div><div class="ring"><div><b>87</b><small>score</small></div></div></div>
+        <div class="stat-card"><span class="label">Posture</span><strong>82</strong><div class="bar"><i style="width:82%"></i></div><span class="muted">Good · +6% this week</span></div>
+        <div class="stat-card"><span class="label">Exercise Form</span><strong>91</strong><div class="bar"><i style="width:91%"></i></div><span class="muted">Excellent · +9% this week</span></div>
+        <div class="stat-card"><span class="label">Movement Breaks</span><strong>4 <em>/ 6</em></strong><div class="bar"><i style="width:67%"></i></div><span class="muted">2 more breaks suggested</span></div>
+      </div>
+      <div class="dashboard-lower">
+        <div class="panel">
+          <div class="panel-title"><h3>Recent Sessions</h3><button class="text-btn" onclick="goTo('reports')">View report →</button></div>
+          <div class="session"><span class="session-icon blue">⌁</span><div><b>Desk posture</b><small>Posture Check · 6 min · Today</small></div><strong>84</strong></div>
+          <div class="session"><span class="session-icon purple">↗</span><div><b>Squats · 12 reps</b><small>Exercise Coach · 4 min · Today</small></div><strong>92</strong></div>
+          <div class="session"><span class="session-icon orange">⌁</span><div><b>Study session</b><small>Posture Check · 22 min · Yesterday</small></div><strong>71</strong></div>
+        </div>
+        <div class="panel break-panel"><span class="label">SITTING STREAK</span><strong>47 <small>min</small></strong><p>You're doing well. A movement break is suggested in <b>13 minutes.</b></p><button class="secondary" onclick="showToast('Break logged! Great job.')">✓ Log a break</button></div>
+      </div>
+    </section>
+
+    <section id="analyze" class="section analyze-section">
+      <div class="section-head"><div><span class="eyebrow">AI MOVEMENT COACH</span><h2>Analyze your movement</h2></div><span class="privacy">🔒 Local-first design</span></div>
+      <div class="analyzer">
+        <div class="camera-panel">
+          <div class="camera-top"><span id="cameraStatus"><i></i> Ready</span><button class="icon-btn" onclick="toggleCamera()" title="Camera">📷</button></div>
+          <video id="video" autoplay playsinline muted></video>
+          <canvas id="poseCanvas"></canvas>
+          <div id="demoSkeleton" class="skeleton large">
+            <div class="head"></div><div class="body-line"></div>
+            <div class="arm l"></div><div class="arm r"></div>
+            <div class="leg l"></div><div class="leg r"></div>
+          </div>
+          <div class="camera-empty" id="cameraEmpty"><div class="camera-symbol">◉</div><h3>Camera analysis</h3><p>Use your camera for a live check, or use Demo Mode for the hackathon walkthrough.</p></div>
+          <div class="camera-controls"><button class="primary" onclick="startDemo()">▶ Demo Analysis</button><button class="secondary" onclick="toggleCamera()">📷 Use Camera</button></div>
+        </div>
+
+        <div class="analysis-side">
+          <div class="mode-tabs"><button class="active" data-mode="posture" onclick="setMode('posture')">🧍 Posture</button><button data-mode="squat" onclick="setMode('squat')">🏋️ Squat</button><button data-mode="pushup" onclick="setMode('pushup')">💪 Push-up</button><button data-mode="lunge" onclick="setMode('lunge')">🦵 Lunge</button></div>
+          <div class="live-score"><span class="label">LIVE FORM SCORE</span><strong id="liveScore">84</strong><span id="scoreLabel">Good</span></div>
+          <div class="feedback" id="feedback"><span class="feedback-icon">✓</span><div><b>Good alignment</b><p>Keep your chest tall and shoulders relaxed.</p></div></div>
+          <div class="metrics">
+            <div><span>Knee angle</span><b id="knee">92°</b></div>
+            <div><span>Hip angle</span><b id="hip">84°</b></div>
+            <div><span>Back angle</span><b id="back">58°</b></div>
+          </div>
+          <div class="rep-box"><div><span>REPETITIONS</span><strong id="reps">0</strong></div><div><span>CORRECT</span><strong id="correct">0</strong></div><div><span>ISSUES</span><strong id="issues">0</strong></div></div>
+          <p class="disclaimer">For wellness and fitness guidance only; not a medical diagnosis or substitute for professional care.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="section">
+      <div class="section-head"><div><span class="eyebrow">PROGRESS</span><h2>Weekly Movement Report</h2></div><button class="secondary" onclick="showToast('Report ready for presentation.')">Export Report</button></div>
+      <div class="report-grid">
+        <div class="panel big-chart"><div class="panel-title"><h3>Movement trend</h3><span class="muted">Last 7 days</span></div><div class="chart"><div class="grid-lines"></div><svg viewBox="0 0 700 220" preserveAspectRatio="none"><polyline points="0,150 100,135 200,148 300,110 400,95 500,72 600,82 700,48" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="chart-labels"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></div></div>
+        <div class="panel"><span class="label">THIS WEEK</span><div class="big-number">87<small>/100</small></div><p class="positive">↑ 11 points from last week</p><hr><div class="report-line"><span>Posture quality</span><b>82%</b></div><div class="report-line"><span>Exercise form</span><b>91%</b></div><div class="report-line"><span>Break goal</span><b>67%</b></div></div>
+      </div>
+    </section>
+
+    <section id="about" class="section how">
+      <div class="section-head"><div><span class="eyebrow">TECHNOLOGY</span><h2>How MoveGuard AI works</h2></div></div>
+      <div class="steps">
+        <div><span>01</span><h3>Camera</h3><p>Use a phone or webcam. No wearables required.</p></div>
+        <div><span>02</span><h3>Pose Estimation</h3><p>Map body landmarks frame by frame.</p></div>
+        <div><span>03</span><h3>Movement Analysis</h3><p>Evaluate joint angles and alignment.</p></div>
+        <div><span>04</span><h3>Feedback</h3><p>Get short, actionable corrections.</p></div>
+        <div><span>05</span><h3>Progress</h3><p>Track scores and improvement over time.</p></div>
+      </div>
+      <div class="privacy-banner"><div>🔐</div><div><h3>Privacy-first by design</h3><p>The prototype is designed around local/on-device processing where possible. Demo Mode uses simulated pose data and does not require camera access.</p></div></div>
+    </section>
+  </main>
+
+  <footer>MoveGuard AI · iQOO Hackathon · Track 03 HealthTech · <span>Prototype / Demo</span></footer>
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
