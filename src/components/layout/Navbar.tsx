@@ -52,16 +52,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-navy-950/85 backdrop-blur-md border-b border-slate-800/80">
+    <header className="sticky top-0 z-50 bg-black/85 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Brand Logo */}
         <Link to={user ? '/dashboard' : '/'} className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-cyan-500 to-cyan-300 flex items-center justify-center text-white shadow-glow-cyan shadow-sm transition-transform duration-300 group-hover:scale-105">
+          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-black shadow-glow-cyan shadow-sm transition-transform duration-300 group-hover:scale-105">
             <span className="text-xl font-black">✦</span>
           </div>
           <div className="flex flex-col">
             <span className="font-display font-extrabold text-xl tracking-tight text-white flex items-center gap-1.5">
-              MoveGuard <span className="text-cyan-400">AI</span>
+              MoveGuard <span className="text-slate-400">AI</span>
             </span>
             <span className="text-[10px] text-slate-400 font-medium tracking-wider uppercase -mt-1">
               Biomechanical Intelligence
@@ -79,11 +79,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
-                    isActive
-                      ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-sm'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
-                  }`}
+                  className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${isActive
+                    ? 'bg-white text-black shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                    }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   {item.label}
@@ -97,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
         <div className="flex items-center gap-3">
           {/* Language selector */}
           <div className="flex items-center gap-1 bg-navy-900/80 px-2.5 py-1.5 rounded-lg border border-slate-800 text-xs text-slate-300">
-            <Globe className="w-3.5 h-3.5 text-cyan-400" />
+            <Globe className="w-3.5 h-3.5 text-white" />
             <select
               value={currentLang}
               onChange={(e) => onLanguageChange(e.target.value as Language)}
@@ -115,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
                 to="/profile"
                 className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-navy-900 hover:bg-navy-800 border border-slate-800 transition"
               >
-                <div className="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-bold text-xs flex items-center justify-center border border-cyan-500/40">
+                <div className="w-6 h-6 rounded-full bg-white/10 text-white font-bold text-xs flex items-center justify-center border border-white/25">
                   {profile?.full_name?.charAt(0) || 'U'}
                 </div>
                 <span className="text-xs font-medium text-slate-200 max-w-[90px] truncate">
@@ -131,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
               <button
                 onClick={handleLogout}
                 title="Log out"
-                className="p-2 rounded-lg bg-navy-900 hover:bg-rose-500/20 hover:text-rose-400 border border-slate-800 text-slate-400 transition"
+                className="p-2 rounded-lg bg-navy-900 hover:bg-rose-500/20 hover:text-rose-400 border border-white/10 text-slate-400 transition"
               >
                 <LogOut className="w-4 h-4" />
               </button>
@@ -146,7 +145,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
               </Link>
               <Link
                 to="/signup"
-                className="px-4 py-2 text-xs font-semibold rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white shadow-glow-cyan transition duration-200"
+                className="px-4 py-2 text-xs font-semibold rounded-full bg-white hover:bg-slate-200 text-black shadow-glow-cyan transition duration-200"
               >
                 {t.nav.signup}
               </Link>
@@ -176,11 +175,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
                 key={item.to}
                 to={item.to}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition ${
-                  isActive
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white'
-                    : 'text-slate-300 hover:bg-navy-900 hover:text-white'
-                }`}
+                className={`flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition ${isActive
+                  ? 'bg-white text-black'
+                  : 'text-slate-300 hover:bg-navy-900 hover:text-white'
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 {item.label}

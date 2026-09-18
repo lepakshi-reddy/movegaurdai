@@ -34,7 +34,7 @@ export const SignupPage: React.FC = () => {
     <div className="flex-1 flex items-center justify-center px-4 py-16">
       <div className="w-full max-w-md space-y-6">
         <div className="text-center space-y-2">
-          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 text-white font-black text-2xl shadow-glow-cyan mb-2">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white text-black font-black text-2xl shadow-glow-cyan mb-2">
             ✦
           </div>
           <h1 className="text-3xl font-extrabold font-display text-white">Create Account</h1>

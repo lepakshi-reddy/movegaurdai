@@ -197,15 +197,13 @@ export const PosturePage: React.FC = () => {
               playsInline
               muted
               autoPlay
-              className={`absolute inset-0 w-full h-full object-cover transform -scale-x-100 ${
-                isCameraLive ? 'block' : 'hidden'
-              }`}
+              className={`absolute inset-0 w-full h-full object-cover transform -scale-x-100 ${isCameraLive ? 'block' : 'hidden'
+                }`}
             />
             <canvas
               ref={canvasRef}
-              className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${
-                isCameraLive ? 'transform -scale-x-100' : ''
-              }`}
+              className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${isCameraLive ? 'transform -scale-x-100' : ''
+                }`}
             />
 
             {!isCameraLive && !isDemoMode && (
@@ -299,7 +297,7 @@ export const PosturePage: React.FC = () => {
                 </div>
                 <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-300"
+                    className="h-full bg-white rounded-full transition-all duration-300"
                     style={{ width: `${item.score}%` }}
                   />
                 </div>

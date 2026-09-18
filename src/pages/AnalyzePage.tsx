@@ -335,11 +335,10 @@ export const AnalyzePage: React.FC = () => {
 
           <button
             onClick={toggleVoice}
-            className={`p-2.5 rounded-xl border transition ${
-              voiceMuted
+            className={`p-2.5 rounded-xl border transition ${voiceMuted
                 ? 'bg-rose-500/10 border-rose-500/30 text-rose-300'
                 : 'bg-navy-900 border-slate-700 text-cyan-400'
-            }`}
+              }`}
             title={voiceMuted ? 'Unmute Audio Cues' : 'Mute Audio Cues'}
           >
             {voiceMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
@@ -364,17 +363,15 @@ export const AnalyzePage: React.FC = () => {
               playsInline
               muted
               autoPlay
-              className={`absolute inset-0 w-full h-full object-cover transform -scale-x-100 ${
-                isCameraLive ? 'block' : 'hidden'
-              }`}
+              className={`absolute inset-0 w-full h-full object-cover transform -scale-x-100 ${isCameraLive ? 'block' : 'hidden'
+                }`}
             />
 
             {/* Skeleton Canvas Overlay */}
             <canvas
               ref={canvasRef}
-              className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${
-                isCameraLive ? 'transform -scale-x-100' : ''
-              }`}
+              className={`absolute inset-0 w-full h-full pointer-events-none z-10 ${isCameraLive ? 'transform -scale-x-100' : ''
+                }`}
             />
 
             {/* Demo Mode Background Glow Grid when camera is off */}
@@ -451,7 +448,7 @@ export const AnalyzePage: React.FC = () => {
             </div>
             <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 transition-all duration-150 rounded-full"
+                className="h-full bg-white transition-all duration-150 rounded-full"
                 style={{ width: `${repProgress}%` }}
               />
             </div>
@@ -471,11 +468,10 @@ export const AnalyzePage: React.FC = () => {
               <button
                 key={ex.id}
                 onClick={() => handleSelectExercise(ex.id as ExerciseType)}
-                className={`py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${
-                  selectedExercise === ex.id
-                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-sm'
+                className={`py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer ${selectedExercise === ex.id
+                    ? 'bg-white text-black shadow-sm'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-                }`}
+                  }`}
               >
                 <span>{ex.icon}</span>
                 <span>{ex.label}</span>
@@ -492,13 +488,12 @@ export const AnalyzePage: React.FC = () => {
               {liveScore}
             </div>
             <span
-              className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${
-                liveScore >= 90
+              className={`inline-block px-3 py-1 rounded-full text-xs font-bold ${liveScore >= 90
                   ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
                   : liveScore >= 75
-                  ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                  : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-              }`}
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
+                    : 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                }`}
             >
               {liveScore >= 90 ? 'Excellent' : liveScore >= 75 ? 'Good' : 'Needs Improvement'}
             </span>

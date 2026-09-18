@@ -11,7 +11,7 @@ interface AppLayoutProps {
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ currentLang, onLanguageChange }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-navy-950 text-slate-100 selection:bg-cyan-500 selection:text-navy-950">
+    <div className="min-h-screen flex flex-col bg-navy-950 text-slate-100 selection:bg-white selection:text-black">
       <Navbar currentLang={currentLang} onLanguageChange={onLanguageChange} />
       <main className="flex-grow flex flex-col">
         <Outlet />

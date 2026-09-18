@@ -70,7 +70,7 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({ onLanguageChange }) =>
         {/* Left: Bio card */}
         <Card className="md:col-span-4 p-6 text-center flex flex-col items-center justify-between">
           <div className="space-y-4">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-cyan-400 text-white font-black text-2xl flex items-center justify-center shadow-glow-cyan mx-auto">
+            <div className="w-20 h-20 rounded-full bg-white text-black font-black text-2xl flex items-center justify-center shadow-glow-cyan mx-auto">
               {fullName.charAt(0) || 'A'}
             </div>
 

@@ -9,12 +9,12 @@ export default {
     extend: {
       colors: {
         navy: {
-          950: '#050912',
-          900: '#080e1a',
-          850: '#0c1527',
-          800: '#101d36',
-          700: '#182b4e',
-          600: '#233c6c',
+          950: '#080808',
+          900: '#111111',
+          850: '#171717',
+          800: '#202020',
+          700: '#2a2a2a',
+          600: '#3a3a3a',
         },
         cyan: {
           300: '#67e8f9',
@@ -33,9 +33,9 @@ export default {
         display: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
       },
       boxShadow: {
-        'glow-cyan': '0 0 25px rgba(0, 240, 255, 0.25)',
-        'glow-blue': '0 0 25px rgba(37, 99, 235, 0.3)',
-        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+        'glow-cyan': '0 0 25px rgba(255, 255, 255, 0.14)',
+        'glow-blue': '0 0 25px rgba(255, 255, 255, 0.12)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.45)',
       },
       animation: {
         'pulse-glow': 'pulse-glow 2.5s infinite ease-in-out',

@@ -65,11 +65,10 @@ export const HistoryPage: React.FC = () => {
             <button
               key={type}
               onClick={() => setFilter(type)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition capitalize cursor-pointer ${
-                filter === type
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-sm'
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition capitalize cursor-pointer ${filter === type
+                  ? 'bg-white text-black shadow-sm'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
-              }`}
+                }`}
             >
               {type}
             </button>

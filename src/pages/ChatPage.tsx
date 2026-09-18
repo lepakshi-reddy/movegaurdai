@@ -111,7 +111,7 @@ export const ChatPage: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between pb-4 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-white shadow-glow-cyan">
+          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-black shadow-glow-cyan">
             <Bot className="w-5 h-5" />
           </div>
           <div>
@@ -139,26 +139,23 @@ export const ChatPage: React.FC = () => {
         {messages.map((m) => (
           <div
             key={m.id}
-            className={`flex items-start gap-3 ${
-              m.sender === 'user' ? 'flex-row-reverse' : 'flex-row'
-            }`}
+            className={`flex items-start gap-3 ${m.sender === 'user' ? 'flex-row-reverse' : 'flex-row'
+              }`}
           >
             <div
-              className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${
-                m.sender === 'user'
+              className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${m.sender === 'user'
                   ? 'bg-blue-600 text-white'
                   : 'bg-cyan-500/10 border border-cyan-500/30 text-cyan-400'
-              }`}
+                }`}
             >
               {m.sender === 'user' ? <User className="w-4 h-4" /> : <Sparkles className="w-4 h-4" />}
             </div>
 
             <div
-              className={`max-w-xl rounded-2xl px-4 py-3 text-xs sm:text-sm leading-relaxed ${
-                m.sender === 'user'
-                  ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-tr-none'
+              className={`max-w-xl rounded-2xl px-4 py-3 text-xs sm:text-sm leading-relaxed ${m.sender === 'user'
+                  ? 'bg-white text-black rounded-tr-none'
                   : 'bg-navy-900/90 border border-slate-800 text-slate-200 rounded-tl-none shadow-glass'
-              }`}
+                }`}
             >
               {m.content}
             </div>

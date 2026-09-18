@@ -36,7 +36,7 @@ export const LandingPage: React.FC = () => {
 
             <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-white">
               Move better.<br />
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-cyan-200 bg-clip-text text-transparent">
+              <span className="text-white">
                 Train smarter.
               </span>
             </h1>
